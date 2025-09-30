@@ -56,7 +56,7 @@ app.post("/api/shorten", async (req, res) => {
     }
 
     const shortUrl = shortid.generate();
-    const baseUrl = `${req.protocol}://${req.get("host")}`;
+    const baseUrl = `https://${req.get("host")}`;
     const completeUrl = `${baseUrl}/${shortUrl}`;
     const newUrl = new Url({ originalUrl, shortUrl, completeUrl });
     await newUrl.save();
